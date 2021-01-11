@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserShoppingBag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShoppingBag" />
+      <s:element name="UserShoppingBagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserShoppingBagResult" type="tns:ShoppingBag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SortMedicine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="whereclout" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SortMedicineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SortMedicineResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineProducer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineProducerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMedicineProducerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMedicineStockResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineCatagory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineCatagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMedicineCatagoryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicinePrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicinePriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMedicinePriceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineNeedPres">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineNeedPresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMedicineNeedPresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMedCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="medId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMedCountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMedinceNameAndId">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMedinceNameAndIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMedinceNameAndIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineCataAndProName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="catId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="proId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMedicineCataAndProNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMedicineCataAndProNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatagory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCatagoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatagoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProducer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProducerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProducerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InseartOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="price" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="tns:ArrayOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="pro" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="cat" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="pn" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="cn" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="count" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InseartOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sort" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailsAboutOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDetailsAboutOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDetailsAboutOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateOrderSupplied">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrderSuppliedResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserShoppingBagSoapIn">
+    <wsdl:part name="parameters" element="tns:UserShoppingBag" />
+  </wsdl:message>
+  <wsdl:message name="UserShoppingBagSoapOut">
+    <wsdl:part name="parameters" element="tns:UserShoppingBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="SortMedicineSoapIn">
+    <wsdl:part name="parameters" element="tns:SortMedicine" />
+  </wsdl:message>
+  <wsdl:message name="SortMedicineSoapOut">
+    <wsdl:part name="parameters" element="tns:SortMedicineResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineProducerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicineProducer" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineProducerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicineProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineStockSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicineStock" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineStockSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicineStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineCatagorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicineCatagory" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineCatagorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicineCatagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicinePriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicinePrice" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicinePriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicinePriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineNeedPresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicineNeedPres" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineNeedPresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicineNeedPresResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMedCountSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMedCount" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMedCountSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMedCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedinceNameAndIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedinceNameAndId" />
+  </wsdl:message>
+  <wsdl:message name="GetMedinceNameAndIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedinceNameAndIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineCataAndProNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMedicineCataAndProName" />
+  </wsdl:message>
+  <wsdl:message name="GetMedicineCataAndProNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMedicineCataAndProNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCatagorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatagory" />
+  </wsdl:message>
+  <wsdl:message name="GetCatagorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatagoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProducerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducer" />
+  </wsdl:message>
+  <wsdl:message name="GetProducerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="InseartOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:InseartOrder" />
+  </wsdl:message>
+  <wsdl:message name="InseartOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:InseartOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetUserOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsAboutOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDetailsAboutOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetDetailsAboutOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDetailsAboutOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderSuppliedSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrderSupplied" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderSuppliedSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrderSuppliedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PharmcyWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserShoppingBag">
+      <wsdl:input message="tns:UserShoppingBagSoapIn" />
+      <wsdl:output message="tns:UserShoppingBagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SortMedicine">
+      <wsdl:input message="tns:SortMedicineSoapIn" />
+      <wsdl:output message="tns:SortMedicineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineProducer">
+      <wsdl:input message="tns:GetMedicineProducerSoapIn" />
+      <wsdl:output message="tns:GetMedicineProducerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineStock">
+      <wsdl:input message="tns:GetMedicineStockSoapIn" />
+      <wsdl:output message="tns:GetMedicineStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCatagory">
+      <wsdl:input message="tns:GetMedicineCatagorySoapIn" />
+      <wsdl:output message="tns:GetMedicineCatagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinePrice">
+      <wsdl:input message="tns:GetMedicinePriceSoapIn" />
+      <wsdl:output message="tns:GetMedicinePriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineNeedPres">
+      <wsdl:input message="tns:GetMedicineNeedPresSoapIn" />
+      <wsdl:output message="tns:GetMedicineNeedPresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMedCount">
+      <wsdl:input message="tns:UpdateMedCountSoapIn" />
+      <wsdl:output message="tns:UpdateMedCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedinceNameAndId">
+      <wsdl:input message="tns:GetMedinceNameAndIdSoapIn" />
+      <wsdl:output message="tns:GetMedinceNameAndIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCataAndProName">
+      <wsdl:input message="tns:GetMedicineCataAndProNameSoapIn" />
+      <wsdl:output message="tns:GetMedicineCataAndProNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatagory">
+      <wsdl:input message="tns:GetCatagorySoapIn" />
+      <wsdl:output message="tns:GetCatagorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducer">
+      <wsdl:input message="tns:GetProducerSoapIn" />
+      <wsdl:output message="tns:GetProducerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InseartOrder">
+      <wsdl:input message="tns:InseartOrderSoapIn" />
+      <wsdl:output message="tns:InseartOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input message="tns:GetAllOrdersSoapIn" />
+      <wsdl:output message="tns:GetAllOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrders">
+      <wsdl:input message="tns:GetUserOrdersSoapIn" />
+      <wsdl:output message="tns:GetUserOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailsAboutOrder">
+      <wsdl:input message="tns:GetDetailsAboutOrderSoapIn" />
+      <wsdl:output message="tns:GetDetailsAboutOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input message="tns:DeleteOrderSoapIn" />
+      <wsdl:output message="tns:DeleteOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderSupplied">
+      <wsdl:input message="tns:UpdateOrderSuppliedSoapIn" />
+      <wsdl:output message="tns:UpdateOrderSuppliedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PharmcyWSSoap" type="tns:PharmcyWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserShoppingBag">
+      <soap:operation soapAction="http://tempuri.org/UserShoppingBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortMedicine">
+      <soap:operation soapAction="http://tempuri.org/SortMedicine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineProducer">
+      <soap:operation soapAction="http://tempuri.org/GetMedicineProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineStock">
+      <soap:operation soapAction="http://tempuri.org/GetMedicineStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCatagory">
+      <soap:operation soapAction="http://tempuri.org/GetMedicineCatagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinePrice">
+      <soap:operation soapAction="http://tempuri.org/GetMedicinePrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineNeedPres">
+      <soap:operation soapAction="http://tempuri.org/GetMedicineNeedPres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMedCount">
+      <soap:operation soapAction="http://tempuri.org/UpdateMedCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedinceNameAndId">
+      <soap:operation soapAction="http://tempuri.org/GetMedinceNameAndId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCataAndProName">
+      <soap:operation soapAction="http://tempuri.org/GetMedicineCataAndProName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatagory">
+      <soap:operation soapAction="http://tempuri.org/GetCatagory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducer">
+      <soap:operation soapAction="http://tempuri.org/GetProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InseartOrder">
+      <soap:operation soapAction="http://tempuri.org/InseartOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrders">
+      <soap:operation soapAction="http://tempuri.org/GetUserOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailsAboutOrder">
+      <soap:operation soapAction="http://tempuri.org/GetDetailsAboutOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderSupplied">
+      <soap:operation soapAction="http://tempuri.org/UpdateOrderSupplied" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PharmcyWSSoap12" type="tns:PharmcyWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserShoppingBag">
+      <soap12:operation soapAction="http://tempuri.org/UserShoppingBag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SortMedicine">
+      <soap12:operation soapAction="http://tempuri.org/SortMedicine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineProducer">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicineProducer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineStock">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicineStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCatagory">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicineCatagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinePrice">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicinePrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineNeedPres">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicineNeedPres" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMedCount">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMedCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedinceNameAndId">
+      <soap12:operation soapAction="http://tempuri.org/GetMedinceNameAndId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCataAndProName">
+      <soap12:operation soapAction="http://tempuri.org/GetMedicineCataAndProName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatagory">
+      <soap12:operation soapAction="http://tempuri.org/GetCatagory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducer">
+      <soap12:operation soapAction="http://tempuri.org/GetProducer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InseartOrder">
+      <soap12:operation soapAction="http://tempuri.org/InseartOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetUserOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailsAboutOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetDetailsAboutOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap12:operation soapAction="http://tempuri.org/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderSupplied">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOrderSupplied" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PharmcyWS">
+    <wsdl:port name="PharmcyWSSoap" binding="tns:PharmcyWSSoap">
+      <soap:address location="http://localhost:61962/PharmcyWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PharmcyWSSoap12" binding="tns:PharmcyWSSoap12">
+      <soap12:address location="http://localhost:61962/PharmcyWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
